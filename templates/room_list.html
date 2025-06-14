@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Booking site </h1>
+    <h2>Rooms:</h2>
+
+    <ul>
+    {%for room in rooms%}
+        <li>{{room.price}}</li>
+
+    {% endfor %}
+    </ul>
+</body>
+</html>
