@@ -1,10 +1,6 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 
 {% block content %}
-
-
-<div class ='room-list'>
-    {%for room in rooms%}
         <div class="card" style="width: 18rem;">
           <img src="{{room.image.url}}" class="card-img-top">
           <div class="card-body">
@@ -12,10 +8,13 @@
             <p class="card-text">{{room.price}} грн/доба.</p>
             <p class="card-text">Мість: {{room.place}}.</p>
 
-            <a href="{% url 'booking' room.id %}" class="btn btn-primary">Забронювати</a>
-          </div>
-        </div>
-    {% endfor %}
-</div>
 
+          </div>
+            <form action="" method="post">
+            {% csrf_token %}
+                {{form.as_div}}
+                <button type="submit" class="btn btn-primary">Бронювати</button>
+
+            </form>
+        </div>
 {% endblock %}
