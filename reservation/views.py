@@ -22,7 +22,7 @@ def booking(request, id_room):
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.room = room
-            reservation.reservator = request.user
+            reservation.user = request.user
             reservation.save()
 
     context = {
