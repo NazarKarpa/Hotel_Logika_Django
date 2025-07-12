@@ -1,20 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <div class="card" style="width: 18rem;">
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="card">
           <img src="{{room.image.url}}" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Номер {{room.number}}</h5>
             <p class="card-text">{{room.price}} грн/доба.</p>
             <p class="card-text">Мість: {{room.place}}.</p>
-
-
           </div>
-            <form action="" method="post">
-            {% csrf_token %}
-                {{form.as_div}}
-                <button type="submit" class="btn btn-primary">Бронювати</button>
-
             </form>
         </div>
+    </div>
+    <div class="col-12 col-md-6">
+         <form action="" method="post">
+            {% csrf_token %}
+             {{ form.as_div }}
+             <button type="submit" class="btn btn-primary">Бронювати</button>
+    </div>
+</div>
+
 {% endblock %}

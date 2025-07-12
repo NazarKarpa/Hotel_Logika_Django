@@ -12,7 +12,7 @@
             <p class="card-text">{{room.price}} грн/доба.</p>
             <p class="card-text">Мість: {{room.place}}.</p>
 
-            <a href="{% url 'booking' room.id %}" class="btn btn-primary">Забронювати</a>
+            <a type = 'submit' href="{% url 'booking' room.id %}" class="btn btn-primary mt-3">Забронювати</a>
           </div>
         </div>
     {% endfor %}

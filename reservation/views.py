@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 from reservation.forms import *
 from reservation.models import Room, Reservation, TypeRoom
 
@@ -13,7 +14,7 @@ def room_list(request):
 
 
 
-
+@login_required
 def booking(request, id_room):
     room = get_object_or_404(Room, id=id_room)
     form = BookingForm()
@@ -23,7 +24,9 @@ def booking(request, id_room):
             reservation = form.save(commit=False)
             reservation.room = room
             reservation.user = request.user
+            #form.full_clean()
             reservation.save()
+            return redirect('room-list')
 
     context = {
         'room': room,
