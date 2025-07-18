@@ -17,7 +17,7 @@ def room_list(request):
 @login_required
 def booking(request, id_room):
     room = get_object_or_404(Room, id=id_room)
-    form = BookingForm()
+    form = BookingForm(room=room)
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
