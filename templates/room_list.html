@@ -3,19 +3,20 @@
 {% block content %}
 
 
-<div class ='room-list'>
-    {%for room in rooms%}
+<div class='room-list'>
+    {% for room in rooms %}
         <div class="card" style="width: 18rem;">
-          <img src="{{room.image.url}}" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Номер {{room.number}}</h5>
-            <p class="card-text">{{room.price}} грн/доба.</p>
-            <p class="card-text">Мість: {{room.place}}.</p>
+            <img src="{{ room.image.url }}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">Номер {{ room.number }}</h5>
+                <p class="card-text">{{ room.price }} грн/доба.</p>
+                <p class="card-text">Мість: {{ room.place }}.</p>
 
-            <a type = 'submit' href="{% url 'booking' room.id %}" class="btn btn-primary mt-3">Забронювати</a>
-          </div>
+                <a href="{% url 'booking' room.id %}" class="stretched-link btn btn-outline-primary mt-3">Забронювати</a>
+            </div>
         </div>
     {% endfor %}
 </div>
+
 
 {% endblock %}

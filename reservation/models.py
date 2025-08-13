@@ -24,7 +24,7 @@ class Room(models.Model):
 
 
     class Meta:
-        ordering = ['price']  # Сортування за ціною
+        ordering = ['number']  # Сортування за ціною
         verbose_name = "room"  # Назва в однині в адмінці
         verbose_name_plural = "Rooms" #Назва в множині
 

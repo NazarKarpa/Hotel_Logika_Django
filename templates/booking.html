@@ -2,22 +2,22 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-10 col-md-6">
         <div class="card">
           <img src="{{room.image.url}}" class="card-img-top">
           <div class="card-body">
-            <h5 class="card-title">Номер {{room.number}}</h5>
-            <p class="card-text">{{room.price}} грн/доба.</p>
+                <h5 class="card-title">Номер {{room.number}}</h5>
+                <p class="card-text">{{room.price}} грн/доба.</p>
             <p class="card-text">Мість: {{room.place}}.</p>
           </div>
-            </form>
+
         </div>
     </div>
     <div class="col-12 col-md-6">
          <form action="" method="post">
             {% csrf_token %}
              {{ form.as_div }}
-             <button type="submit" class="btn btn-primary">Бронювати</button>
+             <button type="submit" class="btn btn-outline-primary my-3">Бронювати</button>
     </div>
 </div>
 
