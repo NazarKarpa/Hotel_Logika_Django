@@ -42,12 +42,7 @@ class Reservation(models.Model):
     def __str__(self):
         return f'start: {self.date_start}, end: {self.date_end}, date create: {self.date_creation}'
 
-    def clean(self):
-        if not self.room:
-            return
-        ex_booking = Reservation.objects.filter(room=self.room, date_start__lt=self.date_end, date_end__gt=self.date_start)
-        if ex_booking.exists():
-            raise ValidationError("Кімнати заброньована")
+
 
 
     class Meta:

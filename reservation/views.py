@@ -19,7 +19,8 @@ def booking(request, id_room):
     room = get_object_or_404(Room, id=id_room)
     form = BookingForm(room=room)
     if request.method == 'POST':
-        form = BookingForm(request.POST)
+
+        form = BookingForm(request.POST, room=room)
         if form.is_valid():
             reservation = form.save(commit=False)
             reservation.room = room
